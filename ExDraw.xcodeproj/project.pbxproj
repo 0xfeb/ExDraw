@@ -7,13 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C01D493B38B4471375FD7BD /* Pods_ExDraw.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E216259D96451D753F94EE55 /* Pods_ExDraw.framework */; };
 		6C65836D2109F01B0054863F /* ExDraw.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C65836B2109F01B0054863F /* ExDraw.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6C6583742109F0990054863F /* Direction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6583732109F0990054863F /* Direction.swift */; };
+		6C6583762109F17F0054863F /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6583752109F17F0054863F /* Gradient.swift */; };
+		6C6583782109F1E10054863F /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6583772109F1E10054863F /* Context.swift */; };
+		6C65837A2109FBB60054863F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6583792109FBB60054863F /* String.swift */; };
+		6C65837C2109FC7E0054863F /* AttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C65837B2109FC7E0054863F /* AttributedString.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		47ED00779E0F10040A335FAE /* Pods-ExDraw.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExDraw.release.xcconfig"; path = "Pods/Target Support Files/Pods-ExDraw/Pods-ExDraw.release.xcconfig"; sourceTree = "<group>"; };
+		6C4C5BEAF7ECC0FF5F594D97 /* Pods-ExDraw.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExDraw.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ExDraw/Pods-ExDraw.debug.xcconfig"; sourceTree = "<group>"; };
 		6C6583682109F01B0054863F /* ExDraw.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ExDraw.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C65836B2109F01B0054863F /* ExDraw.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExDraw.h; sourceTree = "<group>"; };
 		6C65836C2109F01B0054863F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C6583732109F0990054863F /* Direction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Direction.swift; sourceTree = "<group>"; };
+		6C6583752109F17F0054863F /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
+		6C6583772109F1E10054863F /* Context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
+		6C6583792109FBB60054863F /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		6C65837B2109FC7E0054863F /* AttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedString.swift; sourceTree = "<group>"; };
+		E216259D96451D753F94EE55 /* Pods_ExDraw.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExDraw.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -21,17 +35,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C01D493B38B4471375FD7BD /* Pods_ExDraw.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2CF818457067D334A1EC65AE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6C4C5BEAF7ECC0FF5F594D97 /* Pods-ExDraw.debug.xcconfig */,
+				47ED00779E0F10040A335FAE /* Pods-ExDraw.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		6C65835E2109F01B0054863F = {
 			isa = PBXGroup;
 			children = (
 				6C65836A2109F01B0054863F /* ExDraw */,
 				6C6583692109F01B0054863F /* Products */,
+				2CF818457067D334A1EC65AE /* Pods */,
+				F5DCE5491833920F1B0A69FA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -48,8 +74,21 @@
 			children = (
 				6C65836B2109F01B0054863F /* ExDraw.h */,
 				6C65836C2109F01B0054863F /* Info.plist */,
+				6C6583732109F0990054863F /* Direction.swift */,
+				6C6583752109F17F0054863F /* Gradient.swift */,
+				6C6583772109F1E10054863F /* Context.swift */,
+				6C6583792109FBB60054863F /* String.swift */,
+				6C65837B2109FC7E0054863F /* AttributedString.swift */,
 			);
 			path = ExDraw;
+			sourceTree = "<group>";
+		};
+		F5DCE5491833920F1B0A69FA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E216259D96451D753F94EE55 /* Pods_ExDraw.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -70,6 +109,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6C6583702109F01B0054863F /* Build configuration list for PBXNativeTarget "ExDraw" */;
 			buildPhases = (
+				8F83C022ED5F0B19319A260E /* [CP] Check Pods Manifest.lock */,
 				6C6583632109F01B0054863F /* Headers */,
 				6C6583642109F01B0054863F /* Sources */,
 				6C6583652109F01B0054863F /* Frameworks */,
@@ -95,6 +135,7 @@
 				TargetAttributes = {
 					6C6583672109F01B0054863F = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1000;
 					};
 				};
 			};
@@ -125,11 +166,37 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8F83C022ED5F0B19319A260E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ExDraw-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		6C6583642109F01B0054863F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C6583782109F1E10054863F /* Context.swift in Sources */,
+				6C6583742109F0990054863F /* Direction.swift in Sources */,
+				6C65837C2109FC7E0054863F /* AttributedString.swift in Sources */,
+				6C65837A2109FBB60054863F /* String.swift in Sources */,
+				6C6583762109F17F0054863F /* Gradient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,7 +327,9 @@
 		};
 		6C6583712109F01B0054863F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C4C5BEAF7ECC0FF5F594D97 /* Pods-ExDraw.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -270,6 +339,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = ExDraw/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -278,6 +348,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mixbus.ExDraw;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -285,7 +356,9 @@
 		};
 		6C6583722109F01B0054863F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 47ED00779E0F10040A335FAE /* Pods-ExDraw.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -295,6 +368,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = ExDraw/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
