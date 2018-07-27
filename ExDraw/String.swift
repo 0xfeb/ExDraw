@@ -8,6 +8,7 @@
 
 import Foundation
 import ExType
+import ExRect
 
 public extension String {
     public func size(attribute: ExAttributes) -> CGSize {
@@ -38,5 +39,15 @@ public extension String {
             }
         }
         return size(fitSize:fitSize, attribute:attr)
+    }
+    
+    public func image(canvasSize: CGSize, textFrame: CGRect, attribute: ExAttributes) -> UIImage {
+        return UIGraphicsImageRenderer(bounds: ex_rect(0, 0, canvasSize.width, canvasSize.height)).image { (context) in
+            UIGraphicsPushContext(context.cgContext)
+            context.cgContext.flipV(height: canvasSize.height)
+            let astring = self.attributeString(attribute)
+            astring.draw(in: textFrame)
+            UIGraphicsPopContext()
+        }
     }
 }

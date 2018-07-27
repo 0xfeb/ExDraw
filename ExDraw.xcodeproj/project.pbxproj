@@ -14,6 +14,7 @@
 		6C6583782109F1E10054863F /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6583772109F1E10054863F /* Context.swift */; };
 		6C65837A2109FBB60054863F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6583792109FBB60054863F /* String.swift */; };
 		6C65837C2109FC7E0054863F /* AttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C65837B2109FC7E0054863F /* AttributedString.swift */; };
+		6C65837E210B403C0054863F /* TextFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C65837D210B403C0054863F /* TextFrame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		6C6583772109F1E10054863F /* Context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
 		6C6583792109FBB60054863F /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		6C65837B2109FC7E0054863F /* AttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedString.swift; sourceTree = "<group>"; };
+		6C65837D210B403C0054863F /* TextFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFrame.swift; sourceTree = "<group>"; };
 		E216259D96451D753F94EE55 /* Pods_ExDraw.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExDraw.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -79,6 +81,7 @@
 				6C6583772109F1E10054863F /* Context.swift */,
 				6C6583792109FBB60054863F /* String.swift */,
 				6C65837B2109FC7E0054863F /* AttributedString.swift */,
+				6C65837D210B403C0054863F /* TextFrame.swift */,
 			);
 			path = ExDraw;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 			files = (
 				6C6583782109F1E10054863F /* Context.swift in Sources */,
 				6C6583742109F0990054863F /* Direction.swift in Sources */,
+				6C65837E210B403C0054863F /* TextFrame.swift in Sources */,
 				6C65837C2109FC7E0054863F /* AttributedString.swift in Sources */,
 				6C65837A2109FBB60054863F /* String.swift in Sources */,
 				6C6583762109F17F0054863F /* Gradient.swift in Sources */,

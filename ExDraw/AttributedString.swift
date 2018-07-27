@@ -196,7 +196,7 @@ public class ExAttributes {
         attr0 = attr0 + attr1
     }
 
-    public  var imageString : NSAttributedString? {
+    public var imageString : NSAttributedString? {
         if let attach = attachment {
             return NSAttributedString(attachment: attach)
         }

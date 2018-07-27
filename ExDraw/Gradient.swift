@@ -35,23 +35,20 @@ public extension CGGradient {
         context.drawLinearGradient(self, start: direction.point(of: frame), end: direction.point(of: frame), options: CGGradientDrawingOptions.drawsAfterEndLocation)
         context.restoreGState()
     }
-}
-
-public extension UIImage {
-    // direction 为空的时候, 则为圆形
-    public static func gradientImage(size: CGSize, gradient: CGGradient, direction: ExDirection?) -> UIImage {
+    
+    public func image(size: CGSize, direction: ExDirection? = .toRight) -> UIImage {
         let rect = CGRect(origin: CGPoint.zero, size: size)
         if let direction = direction {
             let startPoint = direction.opsite.point(of: rect)
             let endPoint = direction.point(of: rect)
             return UIGraphicsImageRenderer(bounds: rect).image(actions: { (context) in
-                context.cgContext.drawLinearGradient(gradient, start: startPoint, end: endPoint, options: [])
+                context.cgContext.drawLinearGradient(self, start: startPoint, end: endPoint, options: [])
             })
         } else {
             let center = rect.center
             let length = rect.outterCycle.width
             return UIGraphicsImageRenderer(bounds: rect).image(actions: { (context) in
-                context.cgContext.drawRadialGradient(gradient, startCenter: center, startRadius: 0, endCenter: center, endRadius: length, options: [])
+                context.cgContext.drawRadialGradient(self, startCenter: center, startRadius: 0, endCenter: center, endRadius: length, options: [])
             })
         }
     }

@@ -10,11 +10,11 @@ import Foundation
 import CoreGraphics
 
 public extension CGContext {
-    static var current: CGContext? {
+    public static var current: CGContext? {
         return UIGraphicsGetCurrentContext()
     }
     
-    func flipV(height: CGFloat) {
+    public func flipV(height: CGFloat) {
         self.textMatrix = CGAffineTransform.identity
         self.translateBy(x: 0, y: height)
         self.scaleBy(x: 1.0, y: -1.0)
