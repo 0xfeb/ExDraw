@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "ExDraw"
-  s.version      = "0.0.3"
+  s.version      = "0.0.4"
   s.summary      = "CoreGraphics extra library."
 
   # This description is used to generate tags and improve search results.
@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
   CoreGraphics extra library. Add some features to make programming suitable.
                    DESC
 
-  s.homepage     = "https://git.coding.net/danielwyo/ExDraw.git"
+  s.homepage     = "https://gitee.com/clstd/ExDraw"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -80,7 +80,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://git.coding.net/danielwyo/ExDraw.git", :tag => "#{s.version}" }
+  s.source       = { :git => "git@gitee.com:clstd/ExDraw.git", :tag => "#{s.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
