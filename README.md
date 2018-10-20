@@ -8,6 +8,175 @@
 * Use cocoapods, write a line into your Podfile. 
 `pod 'ExDraw'`
 
+### Builder
+* Functions
+
+Create a CGRect structure
+> `ex_rect(_ x:CGFloat, _ y:CGFloat, _ w:CGFloat, _ h:CGFloat) -> CGRect `
+
+Create a CGPoint structure
+> `ex_point(_ x:CGFloat, _ y:CGFloat) -> CGPoint`
+
+Create a CGSize structure
+> `ex_size(_ w:CGFloat, _ h:CGFloat) -> CGSize`
+
+Get center point of two points
+> `ex_center(point1:CGPoint, point2:CGPoint) -> CGPoint`
+
+Get length of two points
+> `ex_length(point1: CGPoint, point2: CGPoint) -> CGFloat`
+
+Get angle of line linked by two points
+> `ex_angle(point1: CGPoint, point2: CGPoint) -> CGFloat`
+
+* Extensions - CGRect
+
+Use center point and size to create a CGRect structure
+> `init(center p:CGPoint, size:CGSize)`
+
+Use corner point and size to create a CGRect structure
+> `init(leftTop p:CGPoint, size:CGSize)`
+
+> `init(rightTop p:CGPoint, size:CGSize)`
+
+> `init(leftBottom p:CGPoint, size:CGSize)`
+
+> `init(rightBottom p:CGPoint, size:CGSize)`
+
+Use two points to create a CGRect structure
+> `init(point1:CGPoint, point2:CGPoint)`
+
+
+### Parts
+
+* Extensions - CGRect
+
+Parts of proporty
+> `left:CGFloat` -- Get/Set
+
+> `right:CGFloat` -- Get/Set
+
+> `top:CGFloat` -- Get/Set
+
+> `bottom:CGFloat` -- Get/Set
+
+> `shortBorderLength:CGFloat` -- Get
+
+> `longBorderLength:CGFloat` -- Get
+
+> `hypotenuseLength:CGFloat` -- Get
+
+Points of rect
+> `center:CGPoint` -- Get/Set
+
+> `leftTop:CGPoint` -- Get/Set
+
+> `rightTop:CGPoint` -- Get/Set
+
+> `leftBottom:CGPoint` -- Get/Set
+
+> `rightBottom:CGPoint` -- Get/Set
+
+> `topCenter:CGPoint` -- Get/Set
+
+> `bottomCenter:CGPoint` -- Get/Set
+
+> `leftCenter:CGPoint` -- Get/Set
+
+> `rightCenter:CGPoint` -- Get/Set
+
+
+### Transform
+
+* Extensions - CGRect
+
+Make a offseet moving or get moved rect
+> `mutating func move(offset:(CGFloat, CGFloat))`
+
+> `func moved(offset:(CGFloat, CGFloat)) -> CGRect`
+
+Clip a rect with edge insets. Use number less than zero in edgeinsets to exclusion the rect.
+> `mutating func clip(edge:UIEdgeInsets)`
+
+> `func cliped(edge:UIEdgeInsets) -> CGRect`
+
+Scale a rect or get scaled rect, there are two ways in parameters, about fixed size clip or rate size clip. 
+> `mutating func scale(size:(CGFloat, CGFloat))`
+
+> `mutating func scale(rate:(CGFloat, CGFloat))`
+
+> `func scaled(size:(CGFloat, CGFloat)) -> CGRect`
+
+> `func scaled(rate:(CGFloat, CGFloat)) -> CGRect`
+
+Get relation rect inner or outter. 
+> `var innerSqure : CGRect`
+
+> `var outterSqure : CGRect`
+
+> `var innerCycle : CGRect`
+
+> `var outterCycle : CGRect`
+
+Devide a rect into two rects. fixed or rate deviding. First item in result is the rect which neared edge, and the second far away from edge.
+> `func devided(from edge:CGRectEdge, fix:CGFloat) -> (CGRect, CGRect)`
+
+> `func devided(from edge:CGRectEdge, rate:CGFloat) -> (CGRect, CGRect)`
+
+Resize rect or get a resized rect.
+> `mutating func resize(fixCorner:RectCorner, size:CGSize)`
+
+> `func resized(fixCorner:RectCorner, size:CGSize) -> CGRect`
+
+
+### Grid
+
+* Extensions - CGRect
+
+> A structure to description about relationship between height and width. 
+
+> `HeightWidthRate`
+
+> A number to mark about height devide to width.
+>> `heightDWidth` 
+
+> Add extra number to plus the result of height multiply heightDWidth
+>> `constant`
+
+> Get width of height.
+>> `func widthOf(height: CGFloat) -> CGFloat`
+
+> Get height of width.
+>> `func heightOf(width: CGFloat) -> CGFloat`
+
+Build fixed grids' rect in a rect
+
+> `func buildGrids(rowCount: Int, itemsInRow: Int,
+                           edge: UIEdgeInsets = UIEdgeInsets.zero,
+                           hSpace: CGFloat = 0, vSpace: CGFloat = 0) -> [CGRect]`
+
+Build flow grids' rect in a rect
+
+> `func buildHFlowGrids(rowCount: Int, hwRate: HeightWidthRate, itemsCount: Int,
+                                edge: UIEdgeInsets = UIEdgeInsets.zero,
+                                hSpace: CGFloat = 0, vSpace: CGFloat = 0) -> [CGRect]`
+
+> `func buildVFlowGrids(itemsInRow: Int, hwRate: HeightWidthRate, itemsCount: Int,
+                                edge: UIEdgeInsets = UIEdgeInsets.zero,
+                                hSpace: CGFloat = 0, vSpace: CGFloat = 0) -> [CGRect]`
+                                
+Get a flow grid's rect in a rect
+
+> `itemAtHFlowGrids(rowCount: Int, hwRate: HeightWidthRate, item: Int,
+                                 edge: UIEdgeInsets = UIEdgeInsets.zero,
+                                 hSpace: CGFloat = 0, vSpace: CGFloat = 0) -> CGRect`
+                                                                
+
+> `itemAtVFlowGrids(itemsInRow: Int, hwRate: HeightWidthRate, item: Int,
+                                 edge: UIEdgeInsets = UIEdgeInsets.zero,
+                                 hSpace: CGFloat = 0, vSpace: CGFloat = 0) -> CGRect`
+
+
 ### Direction
 
 * Enum -- ExDirection
@@ -276,6 +445,19 @@ Suggest frames of ctframe setter
 Get frame in line of ctframe setter
 
 > `func lineFrame(charCount:Int, rect:CGRect) -> CTFrame`
+
+### Path 
+
+* Extension - CGPath
+
+Generate path from text
+
+> `static func from(text:String) -> CGPath`
+
+
+Convert path to text
+
+> `var text:String`
 
 ### Author
 WangYuanou

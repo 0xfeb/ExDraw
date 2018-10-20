@@ -8,7 +8,6 @@
 
 import Foundation
 import CoreText
-import ExRect
 
 public extension CTFrame {
     func draw(inContext:CGContext) {

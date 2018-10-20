@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import ExRect
 
 public enum ExDirection {
     case toTop

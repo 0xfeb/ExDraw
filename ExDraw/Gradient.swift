@@ -8,7 +8,6 @@
 
 import Foundation
 import CoreGraphics
-import ExRect
 import UIKit
 
 public extension CGGradient {

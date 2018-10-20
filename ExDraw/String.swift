@@ -8,7 +8,6 @@
 
 import Foundation
 import ExType
-import ExRect
 
 public extension String {
     public func size(attribute: ExAttributes) -> CGSize {
