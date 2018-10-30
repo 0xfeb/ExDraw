@@ -272,3 +272,9 @@ public func ex_rtfd(filename: String) -> NSAttributedString? {
     guard let url = ex_url(filename) else { return nil }
     return try? NSAttributedString(url: url, options: options, documentAttributes: nil)
 }
+
+public extension NSAttributedString {
+    public var scaledSize:CGSize {
+        return CGSize(width: size().width / UIScreen.main.scale, height: size().height / UIScreen.main.scale)
+    }
+}
