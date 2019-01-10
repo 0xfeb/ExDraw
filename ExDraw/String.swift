@@ -41,7 +41,7 @@ public extension String {
     }
     
     public func image(canvasSize: CGSize, textFrame: CGRect, attribute: ExAttributes) -> UIImage {
-        return UIGraphicsImageRenderer(bounds: ex_rect(0, 0, canvasSize.width, canvasSize.height)).image { (context) in
+        return UIGraphicsImageRenderer(bounds: CGRect(x: 0, y: 0, width: canvasSize.width, height: canvasSize.height)).image { (context) in
             UIGraphicsPushContext(context.cgContext)
             context.cgContext.flipV(height: canvasSize.height)
             let astring = self.attributeString(attribute)

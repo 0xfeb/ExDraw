@@ -30,7 +30,7 @@ public extension CGGradient {
 
         context.saveGState()
         path.addClip()
-        let frame = ex_rect(0, 0, 1, 1)
+        let frame = CGRect(x: 0, y: 0, width: 1, height: 1)
         context.drawLinearGradient(self, start: direction.point(of: frame), end: direction.point(of: frame), options: CGGradientDrawingOptions.drawsAfterEndLocation)
         context.restoreGState()
     }

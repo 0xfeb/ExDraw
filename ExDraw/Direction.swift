@@ -42,21 +42,21 @@ public enum ExDirection {
     func point(of rect: CGRect) -> CGPoint {
         switch self {
         case .toTop:
-            return ex_point(rect.center.x, rect.top)
+            return CGPoint(x: rect.center.x, y: rect.top)
         case .toTopRight:
             return rect.rightTop
         case .toTopLeft:
             return rect.leftTop
         case .toRight:
-            return ex_point(rect.right, rect.center.y)
+            return CGPoint(x: rect.right, y: rect.center.y)
         case .toBottomRight:
             return rect.rightBottom
         case .toBottom:
-            return ex_point(rect.center.x, rect.bottom)
+            return CGPoint(x: rect.center.x, y: rect.bottom)
         case .toBottomLeft:
             return rect.leftBottom
         case .toLeft:
-            return ex_point(rect.left, rect.center.y)
+            return CGPoint(x: rect.left, y: rect.center.y)
         }
     }
 }

@@ -24,7 +24,7 @@ public extension CGRect {
             let gridTop = edge.top + CGFloat(vPosition) * (gridHeight + vSpace)
             for hPostion in 0..<itemsInRow {
                 let gridLeft = edge.left + CGFloat(hPostion) * (gridWidth + hSpace)
-                result.append(ex_rect(gridLeft, gridTop, gridWidth, gridHeight))
+                result.append(CGRect(x: gridLeft, y: gridTop, width: gridWidth, height: gridHeight))
             }
         }
 
@@ -61,7 +61,7 @@ public extension CGRect {
             let gridTop = edge.top + CGFloat(vPosition) * (gridHeight + vSpace)
             for hPostion in 0..<itemsInRow {
                 let gridLeft = edge.left + CGFloat(hPostion) * (gridWidth + hSpace)
-                result.append(ex_rect(gridLeft, gridTop, gridWidth, gridHeight))
+                result.append(CGRect(x: gridLeft, y: gridTop, width: gridWidth, height: gridHeight))
             }
         }
 
@@ -85,7 +85,7 @@ public extension CGRect {
             let gridTop = edge.top + CGFloat(vPostion) * (gridHeight + vSpace)
             for hPosition in 0..<itemsInRow {
                 let gridLeft = edge.left + CGFloat(hPosition) * (gridWidth + hSpace)
-                result.append(ex_rect(gridLeft, gridTop, gridWidth, gridHeight))
+                result.append(CGRect(x: gridLeft, y: gridTop, width: gridWidth, height: gridHeight))
             }
         }
 
@@ -108,7 +108,7 @@ public extension CGRect {
         let gridTop = edge.top + CGFloat(vPosition) * (gridHeight + vSpace)
         let gridLeft = edge.left + CGFloat(hPosition) * (gridWidth + hSpace)
 
-        return ex_rect(gridLeft, gridTop, gridWidth, gridHeight)
+        return CGRect(x: gridLeft, y: gridTop, width: gridWidth, height: gridHeight)
     }
 
     public func itemAtVFlowGrids(itemsInRow: Int, hwRate: HeightWidthRate, item: Int,
@@ -127,6 +127,6 @@ public extension CGRect {
         let gridTop = edge.top + CGFloat(vPosition) * (gridHeight + vSpace)
         let gridLeft = edge.left + CGFloat(hPosition) * (gridWidth + hSpace)
 
-        return ex_rect(gridLeft, gridTop, gridWidth, gridHeight)
+        return CGRect(x: gridLeft, y: gridTop, width: gridWidth, height: gridHeight)
     }
 }

@@ -11,51 +11,51 @@ import UIKit
 
 public extension CGRect {
     public mutating func move(offset: (CGFloat, CGFloat)) {
-        origin = ex_point(origin.x + offset.0, origin.y + offset.1)
+        origin = CGPoint(x: origin.x + offset.0, y: origin.y + offset.1)
     }
 
     public func moved(offset: (CGFloat, CGFloat)) -> CGRect {
-        return ex_rect(origin.x + offset.0, origin.y + offset.1, width, height)
+        return CGRect(x: origin.x + offset.0, y: origin.y + offset.1, width: width, height: height)
     }
 
     public mutating func clip(edge: UIEdgeInsets) {
-        origin = ex_point(minX+edge.left, minY+edge.top)
-        size = ex_size(width-edge.left-edge.right, height-edge.top-edge.bottom)
+        origin = CGPoint(x: minX+edge.left, y: minY+edge.top)
+        size = CGSize(width: width-edge.left-edge.right, height: height-edge.top-edge.bottom)
     }
 
     public func cliped(edge: UIEdgeInsets) -> CGRect {
-        return ex_rect(minX+edge.left, minY+edge.top, width-edge.left-edge.right, height-edge.top-edge.bottom)
+        return CGRect(x: minX+edge.left, y: minY+edge.top, width: width-edge.left-edge.right, height: height-edge.top-edge.bottom)
     }
 
     public func scaled(size: (CGFloat, CGFloat)) -> CGRect {
-        return CGRect(center: center, size: ex_size(self.size.width+size.0, self.size.height+size.1))
+        return CGRect(center: center, size: CGSize(width: self.size.width+size.0, height: self.size.height+size.1))
     }
 
     public func scaled(rate: (CGFloat, CGFloat)) -> CGRect {
-        return CGRect(center: center, size: ex_size(self.size.width*rate.0, self.size.height*rate.1))
+        return CGRect(center: center, size: CGSize(width: self.size.width*rate.0, height: self.size.height*rate.1))
     }
 
     public mutating func scale(size: (CGFloat, CGFloat)) {
         let originCenter = center
-        self.size = ex_size(self.size.width+size.0, self.size.height+size.1)
+        self.size = CGSize(width: self.size.width+size.0, height: self.size.height+size.1)
         self.center = originCenter
     }
 
     public mutating func scale(rate: (CGFloat, CGFloat)) {
         let originCenter = center
-        self.size = ex_size(self.size.width*rate.0, self.size.height*rate.1)
+        self.size = CGSize(width: self.size.width*rate.0, height: self.size.height*rate.1)
         self.center = originCenter
     }
 
     //Get ralation rect of this one
     public var innerSqure: CGRect {
         let length = min(width, height)
-        return CGRect(center: center, size: ex_size(length, length))
+        return CGRect(center: center, size: CGSize(width: length, height: length))
     }
 
     public var outterSqure: CGRect {
         let length = max(width, height)
-        return CGRect(center: center, size: ex_size(length, length))
+        return CGRect(center: center, size: CGSize(width: length, height: length))
     }
 
     public var innerCycle: CGRect {
@@ -64,27 +64,27 @@ public extension CGRect {
 
     public var outterCycle: CGRect {
         let opsiteCornerLength = sqrt(width*width + height*height)
-        return CGRect(center: center, size: ex_size(opsiteCornerLength, opsiteCornerLength))
+        return CGRect(center: center, size: CGSize(width: opsiteCornerLength, height: opsiteCornerLength))
     }
 
     //Cut rect to depart it
     public func devided(from edge: CGRectEdge, fix: CGFloat) -> (CGRect, CGRect) {
         switch edge {
         case .minXEdge:
-            let rect1 = ex_rect(left, top, fix, height)
-            let rect2 = ex_rect(left+fix, top, width-fix, height)
+            let rect1 = CGRect(x: left, y: top, width: fix, height: height)
+            let rect2 = CGRect(x: left+fix, y: top, width: width-fix, height: height)
             return (rect1, rect2)
         case .maxXEdge:
-            let rect1 = ex_rect(right-fix, top, fix, height)
-            let rect2 = ex_rect(left, top, width-fix, height)
+            let rect1 = CGRect(x: right-fix, y: top, width: fix, height: height)
+            let rect2 = CGRect(x: left, y: top, width: width-fix, height: height)
             return (rect1, rect2)
         case .minYEdge:
-            let rect1 = ex_rect(left, top, width, fix)
-            let rect2 = ex_rect(left, top+fix, width, height-fix)
+            let rect1 = CGRect(x: left, y: top, width: width, height: fix)
+            let rect2 = CGRect(x: left, y: top+fix, width: width, height: height-fix)
             return (rect1, rect2)
         case .maxYEdge:
-            let rect1 = ex_rect(left, bottom-fix, width, fix)
-            let rect2 = ex_rect(left, top, width, height-fix)
+            let rect1 = CGRect(x: left, y: bottom-fix, width: width, height: fix)
+            let rect2 = CGRect(x: left, y: top, width: width, height: height-fix)
             return (rect1, rect2)
         }
     }
@@ -136,76 +136,76 @@ public extension CGRect {
     public func resized(fixCorner: RectCorner, size: CGSize) -> CGRect {
         switch fixCorner {
         case .leftTop:
-            return ex_rect(left, top, size.width, size.height)
+            return CGRect(x: left, y: top, width: size.width, height: size.height)
         case .leftBottom:
-            return ex_rect(left, bottom-size.height, size.width, size.height)
+            return CGRect(x: left, y: bottom-size.height, width: size.width, height: size.height)
         case .rightTop:
-            return ex_rect(right-size.width, top, size.width, size.height)
+            return CGRect(x: right-size.width, y: top, width: size.width, height: size.height)
         case .rightBottom:
-            return ex_rect(right-size.width, bottom-size.height, size.width, size.height)
+            return CGRect(x: right-size.width, y: bottom-size.height, width: size.width, height: size.height)
         case .center:
-            return ex_rect(center.x-size.width/2, center.y-size.height/2, size.width, size.height)
+            return CGRect(x: center.x-size.width/2, y: center.y-size.height/2, width: size.width, height: size.height)
         }
     }
 
     public mutating func resizeBaseCenter(width: CGFloat) {
-        resize(fixCorner: CGRect.RectCorner.center, size: ex_size(width, size.height))
+        resize(fixCorner: CGRect.RectCorner.center, size: CGSize(width: width, height: size.height))
     }
 
     public mutating func resizeBaseCenter(height: CGFloat) {
-        resize(fixCorner: CGRect.RectCorner.center, size: ex_size(size.width, height))
+        resize(fixCorner: CGRect.RectCorner.center, size: CGSize(width: size.width, height: height))
     }
 
     public mutating func resizeBaseLeft(width: CGFloat) {
-        resize(fixCorner: CGRect.RectCorner.leftTop, size: ex_size(width, size.height))
+        resize(fixCorner: CGRect.RectCorner.leftTop, size: CGSize(width: width, height: size.height))
     }
 
     public mutating func resizeBaseRight(width: CGFloat) {
-        resize(fixCorner: CGRect.RectCorner.rightTop, size: ex_size(width, size.height))
+        resize(fixCorner: CGRect.RectCorner.rightTop, size: CGSize(width: width, height: size.height))
     }
 
     public mutating func resizeBaseTop(height: CGFloat) {
-        resize(fixCorner: CGRect.RectCorner.leftTop, size: ex_size(size.width, height))
+        resize(fixCorner: CGRect.RectCorner.leftTop, size: CGSize(width: size.width, height: height))
     }
 
     public mutating func resizeBaseBottom(height: CGFloat) {
-        resize(fixCorner: CGRect.RectCorner.leftBottom, size: ex_size(size.width, height))
+        resize(fixCorner: CGRect.RectCorner.leftBottom, size: CGSize(width: size.width, height: height))
     }
 
     public func resizedBaseCenter(width: CGFloat) -> CGRect {
-        return resized(fixCorner: CGRect.RectCorner.center, size: ex_size(width, size.height))
+        return resized(fixCorner: CGRect.RectCorner.center, size: CGSize(width: width, height: size.height))
     }
 
     public func resizedBaseCenter(height: CGFloat) -> CGRect {
-        return resized(fixCorner: CGRect.RectCorner.center, size: ex_size(size.width, height))
+        return resized(fixCorner: CGRect.RectCorner.center, size: CGSize(width: size.width, height: height))
     }
 
     public func resizedBaseLeft(width: CGFloat) -> CGRect {
-        return resized(fixCorner: CGRect.RectCorner.leftTop, size: ex_size(size.width, height))
+        return resized(fixCorner: CGRect.RectCorner.leftTop, size: CGSize(width: size.width, height: height))
     }
 
     public func resizedBaseRight(width: CGFloat) -> CGRect {
-        return resized(fixCorner: CGRect.RectCorner.leftBottom, size: ex_size(size.width, height))
+        return resized(fixCorner: CGRect.RectCorner.leftBottom, size: CGSize(width: size.width, height: height))
     }
 
     public func resizedBaseTop(height: CGFloat) -> CGRect {
-        return  resized(fixCorner: CGRect.RectCorner.leftTop, size: ex_size(size.width, height))
+        return  resized(fixCorner: CGRect.RectCorner.leftTop, size: CGSize(width: size.width, height: height))
     }
 
     public func resizedBaseBottom(height: CGFloat) -> CGRect {
-        return resized(fixCorner: CGRect.RectCorner.leftBottom, size: ex_size(size.width, height))
+        return resized(fixCorner: CGRect.RectCorner.leftBottom, size: CGSize(width: size.width, height: height))
     }
 
     public func fliped(based: CGRectEdge) -> CGRect {
         switch based {
         case .minXEdge:
-            return ex_rect(left - width, top, width, height)
+            return CGRect(x: left - width, y: top, width: width, height: height)
         case .maxXEdge:
-            return ex_rect(right, top, width, height)
+            return CGRect(x: right, y: top, width: width, height: height)
         case .minYEdge:
-            return ex_rect(left, top - height, width, height)
+            return CGRect(x: left, y: top - height, width: width, height: height)
         case .maxYEdge:
-            return ex_rect(left, bottom, width, height)
+            return CGRect(x: left, y: bottom, width: width, height: height)
         }
     }
 }

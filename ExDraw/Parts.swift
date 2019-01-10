@@ -11,28 +11,28 @@ import CoreGraphics
 
 public extension CGRect {
     var center: CGPoint {
-        get { return ex_point(width/2+minX, height/2+minY) }
-        set { origin = ex_point(newValue.x-width/2, newValue.y-height/2) }
+        get { return CGPoint(x: width/2+minX, y: height/2+minY) }
+        set { origin = CGPoint(x: newValue.x-width/2, y: newValue.y-height/2) }
     }
 
     var left: CGFloat {
         get { return minX }
-        set { origin = ex_point(newValue, minY) }
+        set { origin = CGPoint(x: newValue, y: minY) }
     }
 
     var right: CGFloat {
         get { return maxX }
-        set { origin = ex_point(newValue-width, minY) }
+        set { origin = CGPoint(x: newValue-width, y: minY) }
     }
 
     var top: CGFloat {
         get { return minY }
-        set { origin = ex_point(minX, newValue) }
+        set { origin = CGPoint(x: minX, y: newValue) }
     }
 
     var bottom: CGFloat {
         get { return maxY }
-        set { origin = ex_point(minX, newValue-height) }
+        set { origin = CGPoint(x: minX, y: newValue-height) }
     }
 
     var leftTop: CGPoint {
@@ -41,34 +41,34 @@ public extension CGRect {
     }
 
     var rightTop: CGPoint {
-        get { return ex_point(maxX, minY) }
-        set { origin = ex_point(newValue.x-width, newValue.y) }
+        get { return CGPoint(x: maxX, y: minY) }
+        set { origin = CGPoint(x: newValue.x-width, y: newValue.y) }
     }
 
     var leftBottom: CGPoint {
-        get { return ex_point(minX, maxY) }
-        set { origin = ex_point(newValue.x, newValue.y-height) }
+        get { return CGPoint(x: minX, y: maxY) }
+        set { origin = CGPoint(x: newValue.x, y: newValue.y-height) }
     }
 
     var rightBottom: CGPoint {
-        get { return ex_point(maxX, maxY) }
-        set { origin = ex_point(newValue.x-width, newValue.y-height) }
+        get { return CGPoint(x: maxX, y: maxY) }
+        set { origin = CGPoint(x: newValue.x-width, y: newValue.y-height) }
     }
 
     var topCenter: CGPoint {
-        return ex_center(point1: leftTop, point2: rightTop)
+        return centerOfLine(point1: leftTop, point2: rightTop)
     }
 
     var bottomCenter: CGPoint {
-        return ex_center(point1: leftBottom, point2: rightBottom)
+        return centerOfLine(point1: leftBottom, point2: rightBottom)
     }
 
     var leftCenter: CGPoint {
-        return ex_center(point1: leftTop, point2: leftBottom)
+        return centerOfLine(point1: leftTop, point2: leftBottom)
     }
 
     var rightCenter: CGPoint {
-        return ex_center(point1: rightTop, point2: rightBottom)
+        return centerOfLine(point1: rightTop, point2: rightBottom)
     }
 
     var shortBorderLength: CGFloat {

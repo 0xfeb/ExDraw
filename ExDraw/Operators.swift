@@ -10,77 +10,77 @@ import Foundation
 
 public extension CGSize {
     static func + (_ lhs: CGSize, _ rhs: CGSize) -> CGSize {
-        return ex_size(lhs.width+rhs.width, lhs.height+rhs.height)
+        return CGSize(width: lhs.width+rhs.width, height: lhs.height+rhs.height)
     }
 
     static func + (_ lhs: CGSize, _ rhs: CGPoint) -> CGSize {
-        return ex_size(lhs.width+rhs.x, lhs.height+rhs.y)
+        return CGSize(width: lhs.width+rhs.x, height: lhs.height+rhs.y)
     }
 
     static func + (_ lhs: CGSize, _ rhs: (CGFloat, CGFloat)) -> CGSize {
-        return ex_size(lhs.width+rhs.0, lhs.height+rhs.1)
+        return CGSize(width: lhs.width+rhs.0, height: lhs.height+rhs.1)
     }
 
     static func - (_ lhs: CGSize, _ rhs: CGSize) -> CGSize {
-        return ex_size(lhs.width-rhs.width, lhs.height-rhs.height)
+        return CGSize(width: lhs.width-rhs.width, height: lhs.height-rhs.height)
     }
 
     static func - (_ lhs: CGSize, _ rhs: CGPoint) -> CGSize {
-        return ex_size(lhs.width-rhs.x, lhs.height-rhs.y)
+        return CGSize(width: lhs.width-rhs.x, height: lhs.height-rhs.y)
     }
 
     static func - (_ lhs: CGSize, _ rhs: (CGFloat, CGFloat)) -> CGSize {
-        return ex_size(lhs.width-rhs.0, lhs.height-rhs.1)
+        return CGSize(width: lhs.width-rhs.0, height: lhs.height-rhs.1)
     }
 
     static func * (_ lhs: CGSize, _ rhs: CGSize) -> CGSize {
-        return ex_size(lhs.width*rhs.width, lhs.height*rhs.height)
+        return CGSize(width: lhs.width*rhs.width, height: lhs.height*rhs.height)
     }
 
     static func * (_ lhs: CGSize, _ rhs: CGPoint) -> CGSize {
-        return ex_size(lhs.width*rhs.x, lhs.height*rhs.y)
+        return CGSize(width: lhs.width*rhs.x, height: lhs.height*rhs.y)
     }
 
     static func * (_ lhs: CGSize, _ rhs: (CGFloat, CGFloat)) -> CGSize {
-        return ex_size(lhs.width*rhs.0, lhs.height*rhs.1)
+        return CGSize(width: lhs.width*rhs.0, height: lhs.height*rhs.1)
     }
 
     static func / (_ lhs: CGSize, _ rhs: CGSize) -> CGSize {
-        return ex_size(lhs.width/rhs.width, lhs.height/rhs.height)
+        return CGSize(width: lhs.width/rhs.width, height: lhs.height/rhs.height)
     }
 
     static func / (_ lhs: CGSize, _ rhs: CGPoint) -> CGSize {
-        return ex_size(lhs.width/rhs.x, lhs.height/rhs.y)
+        return CGSize(width: lhs.width/rhs.x, height: lhs.height/rhs.y)
     }
 
     static func / (_ lhs: CGSize, _ rhs: (CGFloat, CGFloat)) -> CGSize {
-        return ex_size(lhs.width/rhs.0, lhs.height/rhs.1)
+        return CGSize(width: lhs.width/rhs.0, height: lhs.height/rhs.1)
     }
 }
 
 public extension CGPoint {
     static func + (_ lhs: CGPoint, _ rhs: CGSize) -> CGSize {
-        return ex_size(lhs.x+rhs.width, lhs.y+rhs.height)
+        return CGSize(width: lhs.x+rhs.width, height: lhs.y+rhs.height)
     }
 
     static func + (_ lhs: CGPoint, _ rhs: CGPoint) -> CGSize {
-        return ex_size(lhs.x+rhs.x, lhs.y+rhs.y)
+        return CGSize(width: lhs.x+rhs.x, height: lhs.y+rhs.y)
     }
 
     static func + (_ lhs: CGPoint, _ rhs: (CGFloat, CGFloat)) -> CGSize {
-        return ex_size(lhs.x+rhs.0, lhs.y+rhs.1)
+        return CGSize(width: lhs.x+rhs.0, height: lhs.y+rhs.1)
     }
 
     static func - (_ lhs: CGPoint, _ rhs: CGSize) -> CGSize {
-        return ex_size(lhs.x-rhs.width, lhs.y-rhs.height)
+        return CGSize(width: lhs.x-rhs.width, height: lhs.y-rhs.height)
     }
 
     static func - (_ lhs: CGPoint, _ rhs: CGPoint) -> CGSize {
-        return ex_size(lhs.x-rhs.x, lhs.y-rhs.y)
+        return CGSize(width: lhs.x-rhs.x, height: lhs.y-rhs.y)
     }
 
     static func - (_ lhs: CGPoint, _ rhs: (CGFloat, CGFloat)) -> CGSize {
-        return ex_size(lhs.x-rhs.0, lhs.y-rhs.1)
+        return CGSize(width: lhs.x-rhs.0, height: lhs.y-rhs.1)
     }
 }
 

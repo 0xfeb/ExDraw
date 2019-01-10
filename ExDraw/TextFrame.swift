@@ -62,8 +62,8 @@ public extension CTFramesetter {
     
     public func lineFrame(charCount:Int, rect:CGRect) -> CTFrame {
         let path = UIBezierPath()
-        path.move(to: ex_point(rect.left, rect.top + rect.height / 2.0))
-        path.addLine(to: ex_point(rect.right, rect.top + rect.height / 2.0))
+        path.move(to: CGPoint(x: rect.left, y: rect.height / 2.0))
+        path.addLine(to: CGPoint(x: rect.right, y: rect.top + rect.height / 2.0))
         return CTFramesetterCreateFrame(self, CFRange(location: 0, length: charCount), path.cgPath, nil)
     }
 }
