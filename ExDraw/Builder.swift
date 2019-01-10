@@ -9,18 +9,6 @@
 import Foundation
 import CoreGraphics
 
-// ----- Simple way to build mesure units -----
-public func ex_rect(_ left: CGFloat, _ top: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
-    return CGRect(x: left, y: top, width: width, height: height)
-}
-
-public func ex_point(_ xValue: CGFloat, _ yValue: CGFloat) -> CGPoint {
-    return CGPoint(x: xValue, y: yValue)
-}
-
-public func ex_size(_ width: CGFloat, _ height: CGFloat) -> CGSize {
-    return CGSize(width: width, height: height)
-}
 
 // ----- Center of two points -----
 public func ex_center(point1: CGPoint, point2: CGPoint) -> CGPoint {
