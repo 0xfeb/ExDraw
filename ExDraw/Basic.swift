@@ -9,6 +9,42 @@
 import Foundation
 import CoreGraphics
 
+public func size(_ width:CGFloat, _ height:CGFloat) -> CGSize {
+    return CGSize(width: width, height: height)
+}
+
+public func size(_ width:Double, _ height:Double) -> CGSize {
+    return CGSize(width: width, height: height)
+}
+
+public func size(_ width:Int, _ height:Int) -> CGSize {
+    return CGSize(width: width, height: height)
+}
+
+public func point(_ x:CGFloat, _ y:CGFloat) -> CGPoint {
+    return CGPoint(x: x, y: y)
+}
+
+public func point(_ x:Double, _ y:Double) -> CGPoint {
+    return CGPoint(x: x, y: y)
+}
+
+public func point(_ x:Int, _ y:Int) -> CGPoint {
+    return CGPoint(x: x, y: y)
+}
+
+public func rect(_ x:CGFloat, _ y:CGFloat, _ width:CGFloat, _ height:CGFloat) -> CGRect {
+    return CGRect(x: x, y: y, width: width, height: height)
+}
+
+public func rect(_ x:Double, _ y:Double, _ width:Double, _ height:Double) -> CGRect {
+    return CGRect(x: x, y: y, width: width, height: height)
+}
+
+public func rect(_ x:Int, _ y:Int, _ width:Int, _ height:Int) -> CGRect {
+    return CGRect(x: x, y: y, width: width, height: height)
+}
+
 // ----- Center of two points -----
 public func centerOfLine(point1: CGPoint, point2: CGPoint) -> CGPoint {
     let xValue = (point1.x + point2.x)/2
@@ -24,6 +60,14 @@ public func lengthOfLine(point1: CGPoint, point2: CGPoint) -> CGFloat {
 
 public func angleOfLine(point1: CGPoint, point2: CGPoint) -> CGFloat {
     return atan2(point2.y - point1.y, point2.x - point1.x)
+}
+
+public func degreeOfRadian(_ radian:CGFloat) -> CGFloat {
+    return radian * 180 / CGFloat.pi
+}
+
+public func radianOfDegree(_ angle:CGFloat) -> CGFloat {
+    return angle * CGFloat.pi / 180
 }
 
 public extension CGRect {
@@ -258,6 +302,96 @@ public extension CGRect {
     var hypotenuseLength: CGFloat {
         return sqrt(width*width + height*height)
     }
+    
+    var smallIntergal:CGRect {
+        return CGRect(x: CGFloat(Int(nearDown: minX)),
+                      y: CGFloat(Int(nearDown: minY)),
+                      width: CGFloat(Int(nearDown: width)),
+                      height: CGFloat(Int(nearDown: height)))
+    }
+    
+    var neturalIntegal:CGRect {
+        return CGRect(x: CGFloat(Int(nearCenter: minX)),
+                      y: CGFloat(Int(nearCenter: minY)),
+                      width: CGFloat(Int(nearCenter: width)),
+                      height: CGFloat(Int(nearCenter: height)))
+    }
 }
 
+public extension CGPoint {
+    func opsitePoint(baseOf point:CGPoint) -> CGPoint {
+        return CGPoint(x: 2*point.x - self.x, y: 2*point.y - self.y)
+    }
+}
 
+public extension CGPoint {
+    public func show() {
+        let text = """
+        Point
+        \u{2190} \(self.x)
+        \u{2193} \(self.y)
+        """
+        
+        print(text)
+    }
+}
+
+public extension CGSize {
+    public func show() {
+        let text = """
+        Size
+        \u{2194} \(self.width)
+        \u{2195} \(self.height)
+        """
+        
+        print(text)
+    }
+}
+
+public extension CGRect {
+    public func show() {
+        let text = """
+        Rect
+        \u{2190} \(self.minX)
+        \u{2193} \(self.minY)
+        \u{2194} \(self.width)
+        \u{2195} \(self.height)
+        """
+        
+        print(text)
+    }
+}
+
+public enum Direction {
+    case left
+    case top
+    case bottom
+    case right
+    case rightTop
+    case rightBottom
+    case leftTop
+    case leftBottom
+}
+
+public extension CGRect {
+    public func point(of dicrection:Direction) -> CGPoint {
+        switch dicrection {
+        case .left:
+            return self.leftCenter
+        case .top:
+            return self.topCenter
+        case .bottom:
+            return self.bottomCenter
+        case .right:
+            return self.rightCenter
+        case .rightTop:
+            return self.rightTop
+        case .leftTop:
+            return self.leftTop
+        case .rightBottom:
+            return self.rightBottom
+        case .leftBottom:
+            return self.leftBottom
+        }
+    }
+}

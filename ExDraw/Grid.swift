@@ -9,124 +9,60 @@
 import Foundation
 import CoreGraphics
 
-public extension CGRect {
-    public func buildGrids(rowCount: Int, itemsInRow: Int,
-                           edge: UIEdgeInsets = UIEdgeInsets.zero,
-                           hSpace: CGFloat = 0, vSpace: CGFloat = 0) -> [CGRect] {
-        if rowCount == 0 || itemsInRow == 0 {
-            return []
-        }
-
-        var result: [CGRect] = []
-        let gridWidth = (width - edge.left - edge.right - hSpace * CGFloat(itemsInRow - 1)) / CGFloat(itemsInRow)
-        let gridHeight = (height - edge.top - edge.bottom - vSpace * CGFloat(rowCount - 1)) / CGFloat(rowCount)
-        for vPosition in 0..<rowCount {
-            let gridTop = edge.top + CGFloat(vPosition) * (gridHeight + vSpace)
-            for hPostion in 0..<itemsInRow {
-                let gridLeft = edge.left + CGFloat(hPostion) * (gridWidth + hSpace)
-                result.append(CGRect(x: gridLeft, y: gridTop, width: gridWidth, height: gridHeight))
-            }
-        }
-
-        return result
+public struct GridGap {
+    var border:CGSize
+    var gap:CGSize
+    
+    public init(border:CGSize, gap:CGSize) {
+        self.border = border
+        self.gap = gap
     }
+}
 
-    public struct HeightWidthRate {
-        public var heightDWidth: CGFloat
-        public var constant: CGFloat
-
-        public func widthOf(height: CGFloat) -> CGFloat {
-            return (height - constant) / heightDWidth
-        }
-
-        public func heightOf(width: CGFloat) -> CGFloat {
-            return heightDWidth * width + constant
-        }
+public struct ExGrid {
+    var screen:CGSize
+    var itemCountInRow:Int
+    var rateHeight:CGFloat
+    var fixHeight:CGFloat
+    var gap:GridGap
+    
+    public func itemHeight(rate:CGFloat, fix:CGFloat) -> ExGrid {
+        return ExGrid(screen: screen,
+                      itemCountInRow: itemCountInRow,
+                      rateHeight: rate,
+                      fixHeight: fix,
+                      gap: gap)
     }
-
-    public func buildHFlowGrids(rowCount: Int, hwRate: HeightWidthRate, itemsCount: Int,
-                                edge: UIEdgeInsets = UIEdgeInsets.zero,
-                                hSpace: CGFloat = 0, vSpace: CGFloat = 0) -> [CGRect] {
-        if rowCount == 0 {
-            return []
-        }
-
-        let itemsInRow = itemsCount / rowCount
-
-        var result: [CGRect] = []
-        let gridHeight = (height - edge.top - edge.bottom - CGFloat(rowCount - 1) * vSpace ) / CGFloat(rowCount)
-        let gridWidth = hwRate.widthOf(height: gridHeight)
-
-        for vPosition in 0..<rowCount {
-            let gridTop = edge.top + CGFloat(vPosition) * (gridHeight + vSpace)
-            for hPostion in 0..<itemsInRow {
-                let gridLeft = edge.left + CGFloat(hPostion) * (gridWidth + hSpace)
-                result.append(CGRect(x: gridLeft, y: gridTop, width: gridWidth, height: gridHeight))
-            }
-        }
-
-        return result
+    
+    public func gap(border:CGSize, gap:CGSize) -> ExGrid {
+        return ExGrid(screen: screen,
+                      itemCountInRow: itemCountInRow,
+                      rateHeight: rateHeight,
+                      fixHeight: fixHeight,
+                      gap: GridGap(border: border, gap: gap))
     }
-
-    public func buildVFlowGrids(itemsInRow: Int, hwRate: HeightWidthRate, itemsCount: Int,
-                                edge: UIEdgeInsets = UIEdgeInsets.zero,
-                                hSpace: CGFloat = 0, vSpace: CGFloat = 0) -> [CGRect] {
-        if itemsInRow == 0 {
-            return []
-        }
-
-        let rowCount = itemsCount / itemsInRow
-
-        var result: [CGRect] = []
-        let gridWidth = (width - edge.left - edge.right - CGFloat(itemsInRow - 1) * hSpace) / CGFloat(itemsInRow)
-        let gridHeight = hwRate.heightOf(width: gridWidth)
-
-        for vPostion in 0..<rowCount {
-            let gridTop = edge.top + CGFloat(vPostion) * (gridHeight + vSpace)
-            for hPosition in 0..<itemsInRow {
-                let gridLeft = edge.left + CGFloat(hPosition) * (gridWidth + hSpace)
-                result.append(CGRect(x: gridLeft, y: gridTop, width: gridWidth, height: gridHeight))
-            }
-        }
-
-        return result
+    
+    public func grid(at position:Int) -> CGRect {
+        let width = (screen.width - 2.0 * gap.border.width - CGFloat(itemCountInRow - 1) * gap.gap.width)/CGFloat(itemCountInRow)
+        let height = width * rateHeight + fixHeight
+        
+        let xPos = position % itemCountInRow
+        let yPos = position / itemCountInRow
+        
+        let x = gap.border.width + CGFloat(xPos) * (width + gap.gap.width)
+        let y = gap.border.height + CGFloat(yPos) * (height + gap.gap.height)
+        
+        return CGRect(x: x, y: y, width: width, height: height).smallIntergal
     }
+}
 
-    public func itemAtHFlowGrids(rowCount: Int, hwRate: HeightWidthRate, item: Int,
-                                 edge: UIEdgeInsets = UIEdgeInsets.zero,
-                                 hSpace: CGFloat = 0, vSpace: CGFloat = 0) -> CGRect {
-        if rowCount == 0 {
-            return CGRect.zero
-        }
-
-        let gridHeight = (height - edge.top - edge.bottom - CGFloat(rowCount - 1) * vSpace ) / CGFloat(rowCount)
-        let gridWidth = hwRate.widthOf(height: gridHeight)
-
-        let hPosition = item / rowCount
-        let vPosition = item % rowCount
-
-        let gridTop = edge.top + CGFloat(vPosition) * (gridHeight + vSpace)
-        let gridLeft = edge.left + CGFloat(hPosition) * (gridWidth + hSpace)
-
-        return CGRect(x: gridLeft, y: gridTop, width: gridWidth, height: gridHeight)
-    }
-
-    public func itemAtVFlowGrids(itemsInRow: Int, hwRate: HeightWidthRate, item: Int,
-                                 edge: UIEdgeInsets = UIEdgeInsets.zero,
-                                 hSpace: CGFloat = 0, vSpace: CGFloat = 0) -> CGRect {
-        if itemsInRow == 0 {
-            return CGRect.zero
-        }
-
-        let gridWidth = (width - edge.left - edge.right - CGFloat(itemsInRow - 1) * hSpace) / CGFloat(itemsInRow)
-        let gridHeight = hwRate.heightOf(width: gridWidth)
-
-        let hPosition = item % itemsInRow
-        let vPosition = item / itemsInRow
-
-        let gridTop = edge.top + CGFloat(vPosition) * (gridHeight + vSpace)
-        let gridLeft = edge.left + CGFloat(hPosition) * (gridWidth + hSpace)
-
-        return CGRect(x: gridLeft, y: gridTop, width: gridWidth, height: gridHeight)
+public extension CGSize {
+    public func buildGrids(itemCountInRow:Int) -> ExGrid? {
+        if itemCountInRow < 1 { return nil }
+        return ExGrid(screen: self,
+                      itemCountInRow: itemCountInRow,
+                      rateHeight: 1,
+                      fixHeight: 0,
+                      gap: GridGap(border: CGSize.zero, gap: CGSize.zero))
     }
 }

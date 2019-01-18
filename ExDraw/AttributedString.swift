@@ -227,54 +227,55 @@ public extension NSAttributedString {
     public static func += (s0:inout NSAttributedString, s1:NSAttributedString) {
         s0 = s0 + s1
     }
-}
-
-public extension UIImage {
-    public func attributeString(size: CGSize? = nil) -> NSAttributedString? {
-        let attr = ExAttributes(image: self, size: size)
-        return attr.imageString
+    
+    public convenience init?(htmlText text:String) {
+        let options:[NSAttributedString.DocumentReadingOptionKey : Any] = [
+            .documentType : NSAttributedString.DocumentType.html,
+            .characterEncoding : String.Encoding.utf8
+        ]
+        if let data = text.data(using: .utf8, allowLossyConversion: true), let str = try? NSAttributedString(data: data, options: options, documentAttributes: nil) {
+            self.init(attributedString: str)
+        } else {
+            return nil
+        }
     }
-}
-
-public extension String {
-    public func attributeString(_ attribute: ExAttributes) -> NSAttributedString {
-        let dict = attribute.dict
-        return NSAttributedString(string: self, attributes: dict)
+    
+    public convenience init?(rtfFile fileName:String) {
+        let options:[NSAttributedString.DocumentReadingOptionKey : Any] = [
+            .documentType : NSAttributedString.DocumentType.rtf,
+            .characterEncoding : String.Encoding.utf8
+        ]
+        if let url = URL(auto:fileName), let str = try? NSAttributedString(url: url, options: options, documentAttributes: nil) {
+            self.init(attributedString: str)
+        } else {
+            return nil
+        }
     }
-}
-
-public func ex_html(text: String) -> NSAttributedString? {
-    let options:[NSAttributedString.DocumentReadingOptionKey : Any] = [
-        .documentType : NSAttributedString.DocumentType.html,
-        .characterEncoding : String.Encoding.utf8
-    ]
-    if let data = text.data(using: .utf8, allowLossyConversion: true) {
-        return try? NSAttributedString(data: data, options: options, documentAttributes: nil)
-    } else {
-        return nil
+    
+    public convenience init?(rtfDFile filename:String) {
+        let options:[NSAttributedString.DocumentReadingOptionKey : Any] = [
+            .documentType : NSAttributedString.DocumentType.rtfd,
+            .characterEncoding : String.Encoding.utf8
+        ]
+        if let url = URL(auto:filename), let str = try? NSAttributedString(url: url, options: options, documentAttributes: nil) {
+            self.init(attributedString: str)
+        } else {
+            return nil
+        }
     }
-}
-
-public func ex_rtf(fileName: String) -> NSAttributedString? {
-    let options:[NSAttributedString.DocumentReadingOptionKey : Any] = [
-        .documentType : NSAttributedString.DocumentType.rtf,
-        .characterEncoding : String.Encoding.utf8
-    ]
-    guard let url = ex_url(fileName) else { return nil }
-    return try? NSAttributedString(url: url, options: options, documentAttributes: nil)
-}
-
-public func ex_rtfd(filename: String) -> NSAttributedString? {
-    let options:[NSAttributedString.DocumentReadingOptionKey : Any] = [
-        .documentType : NSAttributedString.DocumentType.rtfd,
-        .characterEncoding : String.Encoding.utf8
-    ]
-    guard let url = ex_url(filename) else { return nil }
-    return try? NSAttributedString(url: url, options: options, documentAttributes: nil)
-}
-
-public extension NSAttributedString {
-    public var scaledSize:CGSize {
+    
+    public convenience init?(image:UIImage, size:CGSize? = nil) {
+        let imageSize = size ?? image.size
+        let attr = ExAttributes(image: image, size: imageSize)
+        if let str = attr.imageString {
+            self.init(attributedString: str)
+        } else {
+            return nil
+        }
+    }
+    
+    public var trueSize:CGSize {
         return CGSize(width: size().width / UIScreen.main.scale, height: size().height / UIScreen.main.scale)
     }
 }
+

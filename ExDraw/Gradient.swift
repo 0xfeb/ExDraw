@@ -25,23 +25,29 @@ public extension CGGradient {
         return CGGradient(colorsSpace: colorSpace, colors: colors as CFArray, locations: locs)
     }
 
-    public func fill(inPath path: UIBezierPath, direction: ExDirection = .toBottom) {
+    public func fill(inPath path: UIBezierPath, direction: Direction = .bottom) {
         guard let context = UIGraphicsGetCurrentContext() else { return }
 
         context.saveGState()
         path.addClip()
         let frame = CGRect(x: 0, y: 0, width: 1, height: 1)
-        context.drawLinearGradient(self, start: direction.point(of: frame), end: direction.point(of: frame), options: CGGradientDrawingOptions.drawsAfterEndLocation)
+        context.drawLinearGradient(self,
+                                   start: frame.point(of: direction).opsitePoint(baseOf: frame.center),
+                                   end: frame.point(of: direction),
+                                   options: CGGradientDrawingOptions.drawsAfterEndLocation)
         context.restoreGState()
     }
     
-    public func image(size: CGSize, direction: ExDirection? = .toRight) -> UIImage {
+    public func image(size: CGSize, direction: Direction? = .right) -> UIImage {
         let rect = CGRect(origin: CGPoint.zero, size: size)
         if let direction = direction {
-            let startPoint = direction.opsite.point(of: rect)
-            let endPoint = direction.point(of: rect)
-            return UIGraphicsImageRenderer(bounds: rect).image(actions: { (context) in
-                context.cgContext.drawLinearGradient(self, start: startPoint, end: endPoint, options: [])
+            let frame = CGRect(x: 0, y: 0, width: 1, height: 1)
+            return UIGraphicsImageRenderer(bounds: rect)
+                .image(actions: { (context) in
+                context.cgContext.drawLinearGradient(self,
+                                                     start: frame.point(of: direction).opsitePoint(baseOf: frame.center),
+                                                     end: frame.point(of: direction),
+                                                     options: [])
             })
         } else {
             let center = rect.center

@@ -11,26 +11,26 @@ import ExType
 
 public extension String {
     public func size(attribute: ExAttributes) -> CGSize {
-        let astring = self.attributeString(attribute)
+        let astring = NSAttributedString(text: self, attribute: attribute)
         return astring.size()
     }
 
     public func size(font: UIFont) -> CGSize {
-        let attr = ex_set(ExAttributes()) {
+        let attr = setup(ExAttributes()) {
             $0.font = font
         }
         return size(attribute: attr)
     }
 
     public func size(fitSize: CGSize, attribute: ExAttributes) -> CGSize {
-        let astring = self.attributeString(attribute)
+        let astring = NSAttributedString(text: self, attribute: attribute)
         return astring.boundingRect(with: fitSize,
                                     options: [.usesLineFragmentOrigin, .usesFontLeading],
                                     context: nil).size
     }
 
     public func size(fitSize: CGSize, font: UIFont, wordwarp: NSLineBreakMode, kern: CGFloat? = nil) -> CGSize {
-        let attr = ex_set(ExAttributes()) {
+        let attr = setup(ExAttributes()) {
             $0.font = font
             $0.lineBreakMode = wordwarp
             if let kern = kern {
@@ -44,7 +44,7 @@ public extension String {
         return UIGraphicsImageRenderer(bounds: CGRect(x: 0, y: 0, width: canvasSize.width, height: canvasSize.height)).image { (context) in
             UIGraphicsPushContext(context.cgContext)
             context.cgContext.flipV(height: canvasSize.height)
-            let astring = self.attributeString(attribute)
+            let astring = NSAttributedString(text: self, attribute: attribute)
             astring.draw(in: textFrame)
             UIGraphicsPopContext()
         }
