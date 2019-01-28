@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
   CoreGraphics extra library. Add some features to make programming suitable.
                    DESC
 
-  s.homepage     = "https://gitee.com/clstd/ExDraw"
+  s.homepage     = "https://github.com/0xfeb/ExDraw"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -82,7 +82,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "git@gitee.com:clstd/ExDraw.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/0xfeb/ExDraw.git", :tag => "#{s.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
