@@ -230,8 +230,8 @@ public extension NSAttributedString {
     
     public convenience init?(htmlText text:String) {
         let options:[NSAttributedString.DocumentReadingOptionKey : Any] = [
-            .documentType : NSAttributedString.DocumentType.html,
-            .characterEncoding : String.Encoding.utf8
+            .documentType : NSAttributedString.DocumentType.html//,
+            //.characterEncoding : String.Encoding.utf8
         ]
         if let data = text.data(using: .utf8, allowLossyConversion: true), let str = try? NSAttributedString(data: data, options: options, documentAttributes: nil) {
             self.init(attributedString: str)
@@ -274,8 +274,53 @@ public extension NSAttributedString {
         }
     }
     
-    public var trueSize:CGSize {
-        return CGSize(width: size().width / UIScreen.main.scale, height: size().height / UIScreen.main.scale)
+    //support files: txt(default), rtfd, rtf, htm, html, png, jpg, jpeg
+    public convenience init?(filename:String) {
+        let ext = filename.pathExtension
+        switch ext {
+        case "rtfd":
+            self.init(rtfDFile: filename)
+        case "rtf":
+            self.init(rtfFile: filename)
+        case "html", "htm":
+            guard let text = try? String(contentsOfFile: filename) else { return nil }
+            self.init(htmlText: text)
+        case "jpg", "jpeg", "png":
+            guard let image = UIImage(contentsOfFile: filename) else { return nil }
+            self.init(image: image)
+        default:
+            guard let text = try? String(contentsOfFile: filename) else { return nil }
+            let attr = ExAttributes()
+            attr.font = UIFont.systemFont(ofSize: 14)
+            attr.textColor = UIColor.darkGray
+            self.init(text: text, attribute: attr)
+        }
+    }
+    
+    public func applied(add attribute:ExAttributes, range:NSRange? = nil) -> NSAttributedString {
+        let range = range ?? NSRange(location: 0, length: length)
+        
+        let result = NSMutableAttributedString(attributedString: self)
+        result.addAttributes(attribute.dict, range: range)
+        
+        return result
+    }
+    
+    public func applied(change attribute:ExAttributes, range:NSRange? = nil) -> NSAttributedString {
+        let range = range ?? NSRange(location: 0, length: length)
+        
+        let result = NSMutableAttributedString(attributedString: self)
+        result.setAttributes(attribute.dict, range: range)
+        
+        return result
+    }
+    
+    public func size(inWidth:CGFloat) -> CGSize {
+        let containerSize = CGSize(width: inWidth, height: 0)
+        let calulateSize = boundingRect(with: containerSize, options: [.usesLineFragmentOrigin, .usesFontLeading, .truncatesLastVisibleLine, .usesDeviceMetrics], context: nil).integral.size
+        return CGSize(width: calulateSize.width, height: calulateSize.height + 16)
+        
+        //16 is the default textContainerInset top add bottom(both are 8)
     }
 }
 

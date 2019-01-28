@@ -7,13 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		58E738CF318A76D911EB793C /* Pods_ExDrawDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C6124F1DF03B8BC27E13C45 /* Pods_ExDrawDemo.framework */; };
+		3829295DC5DFE4AA7F34B953 /* Pods_ExDrawDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A29170B6EBF9601A58025EE6 /* Pods_ExDrawDemo.framework */; };
 		6C3F4C8921F17B2F004E40E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3F4C8821F17B2F004E40E5 /* AppDelegate.swift */; };
-		6C3F4C8B21F17B2F004E40E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3F4C8A21F17B2F004E40E5 /* ViewController.swift */; };
 		6C3F4C8E21F17B2F004E40E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C3F4C8C21F17B2F004E40E5 /* Main.storyboard */; };
 		6C3F4C9021F17B30004E40E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C3F4C8F21F17B30004E40E5 /* Assets.xcassets */; };
 		6C3F4C9321F17B30004E40E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C3F4C9121F17B30004E40E5 /* LaunchScreen.storyboard */; };
 		6C3F4C9E21F17B30004E40E5 /* ExDrawDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3F4C9D21F17B30004E40E5 /* ExDrawDemoUITests.swift */; };
+		6C3F4CB721F19CD6004E40E5 /* MainMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3F4CB621F19CD6004E40E5 /* MainMenuVC.swift */; };
+		6C3F4CB921F1A078004E40E5 /* GradientVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3F4CB821F1A078004E40E5 /* GradientVC.swift */; };
+		6C3F4CBB21F1A085004E40E5 /* SimpleGridVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3F4CBA21F1A085004E40E5 /* SimpleGridVC.swift */; };
+		6C3F4CBF21F1A0AE004E40E5 /* CollectionGridVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3F4CBE21F1A0AE004E40E5 /* CollectionGridVC.swift */; };
+		6C3F4CC121F1A0BE004E40E5 /* PathVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3F4CC021F1A0BE004E40E5 /* PathVC.swift */; };
+		6C3F4CC321F1A0CA004E40E5 /* StringVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3F4CC221F1A0CA004E40E5 /* StringVC.swift */; };
+		6C3F4CC521F1A0D5004E40E5 /* TextFrameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3F4CC421F1A0D5004E40E5 /* TextFrameVC.swift */; };
+		6C3F4CC721F1A0E0004E40E5 /* AttributedStringVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3F4CC621F1A0E0004E40E5 /* AttributedStringVC.swift */; };
+		6C3F4CE921F1CDC0004E40E5 /* ExDraw.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3F4CE821F1CDC0004E40E5 /* ExDraw.framework */; };
+		6C3F4CF021F6F91B004E40E5 /* 1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6C3F4CEB21F6F91B004E40E5 /* 1.txt */; };
+		6C3F4CF121F6F91B004E40E5 /* 4.rtfd in Resources */ = {isa = PBXBuildFile; fileRef = 6C3F4CEC21F6F91B004E40E5 /* 4.rtfd */; };
+		6C3F4CF221F6F91B004E40E5 /* 2.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6C3F4CED21F6F91B004E40E5 /* 2.rtf */; };
+		6C3F4CF321F6F91B004E40E5 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6C3F4CEE21F6F91B004E40E5 /* 3.jpg */; };
+		6C3F4CF421F6F91B004E40E5 /* 5.html in Resources */ = {isa = PBXBuildFile; fileRef = 6C3F4CEF21F6F91B004E40E5 /* 5.html */; };
+		6C3F4CF621F81625004E40E5 /* FrameDrawVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3F4CF521F81625004E40E5 /* FrameDrawVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,11 +41,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0C6124F1DF03B8BC27E13C45 /* Pods_ExDrawDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExDrawDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3085D5F6D8B7798905AA06E7 /* Pods-ExDrawDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExDrawDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ExDrawDemo/Pods-ExDrawDemo.release.xcconfig"; sourceTree = "<group>"; };
+		4C216D819F39FE730CF612B5 /* Pods-ExDrawDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExDrawDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ExDrawDemo/Pods-ExDrawDemo.release.xcconfig"; sourceTree = "<group>"; };
 		6C3F4C8521F17B2F004E40E5 /* ExDrawDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExDrawDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C3F4C8821F17B2F004E40E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6C3F4C8A21F17B2F004E40E5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6C3F4C8D21F17B2F004E40E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6C3F4C8F21F17B30004E40E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6C3F4C9221F17B30004E40E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -41,7 +53,23 @@
 		6C3F4C9F21F17B30004E40E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6C3F4CA921F17B9E004E40E5 /* ExDraw.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ExDraw.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C3F4CAB21F19711004E40E5 /* ExDraw.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ExDraw.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C2AA40E050F2CC927966BF94 /* Pods-ExDrawDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExDrawDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ExDrawDemo/Pods-ExDrawDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		6C3F4CB621F19CD6004E40E5 /* MainMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuVC.swift; sourceTree = "<group>"; };
+		6C3F4CB821F1A078004E40E5 /* GradientVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientVC.swift; sourceTree = "<group>"; };
+		6C3F4CBA21F1A085004E40E5 /* SimpleGridVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleGridVC.swift; sourceTree = "<group>"; };
+		6C3F4CBE21F1A0AE004E40E5 /* CollectionGridVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionGridVC.swift; sourceTree = "<group>"; };
+		6C3F4CC021F1A0BE004E40E5 /* PathVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathVC.swift; sourceTree = "<group>"; };
+		6C3F4CC221F1A0CA004E40E5 /* StringVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringVC.swift; sourceTree = "<group>"; };
+		6C3F4CC421F1A0D5004E40E5 /* TextFrameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFrameVC.swift; sourceTree = "<group>"; };
+		6C3F4CC621F1A0E0004E40E5 /* AttributedStringVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStringVC.swift; sourceTree = "<group>"; };
+		6C3F4CE821F1CDC0004E40E5 /* ExDraw.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ExDraw.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C3F4CEB21F6F91B004E40E5 /* 1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 1.txt; sourceTree = "<group>"; };
+		6C3F4CEC21F6F91B004E40E5 /* 4.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = 4.rtfd; sourceTree = "<group>"; };
+		6C3F4CED21F6F91B004E40E5 /* 2.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = 2.rtf; sourceTree = "<group>"; };
+		6C3F4CEE21F6F91B004E40E5 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
+		6C3F4CEF21F6F91B004E40E5 /* 5.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = 5.html; sourceTree = "<group>"; };
+		6C3F4CF521F81625004E40E5 /* FrameDrawVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameDrawVC.swift; sourceTree = "<group>"; };
+		A29170B6EBF9601A58025EE6 /* Pods_ExDrawDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExDrawDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFE2E303499BA9C7E859C104 /* Pods-ExDrawDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExDrawDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ExDrawDemo/Pods-ExDrawDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,7 +77,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58E738CF318A76D911EB793C /* Pods_ExDrawDemo.framework in Frameworks */,
+				6C3F4CE921F1CDC0004E40E5 /* ExDraw.framework in Frameworks */,
+				3829295DC5DFE4AA7F34B953 /* Pods_ExDrawDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +92,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		279861CAA389FAFF6AC40551 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CFE2E303499BA9C7E859C104 /* Pods-ExDrawDemo.debug.xcconfig */,
+				4C216D819F39FE730CF612B5 /* Pods-ExDrawDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		6C3F4C7C21F17B2F004E40E5 = {
 			isa = PBXGroup;
 			children = (
@@ -70,7 +108,7 @@
 				6C3F4C9C21F17B30004E40E5 /* ExDrawDemoUITests */,
 				6C3F4C8621F17B2F004E40E5 /* Products */,
 				6C3F4CA821F17B9E004E40E5 /* Frameworks */,
-				FAF25FCE75C2045AD5011A75 /* Pods */,
+				279861CAA389FAFF6AC40551 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,12 +124,21 @@
 		6C3F4C8721F17B2F004E40E5 /* ExDrawDemo */ = {
 			isa = PBXGroup;
 			children = (
+				6C3F4CEA21F6F209004E40E5 /* res */,
 				6C3F4C8821F17B2F004E40E5 /* AppDelegate.swift */,
-				6C3F4C8A21F17B2F004E40E5 /* ViewController.swift */,
 				6C3F4C8C21F17B2F004E40E5 /* Main.storyboard */,
 				6C3F4C8F21F17B30004E40E5 /* Assets.xcassets */,
 				6C3F4C9121F17B30004E40E5 /* LaunchScreen.storyboard */,
 				6C3F4C9421F17B30004E40E5 /* Info.plist */,
+				6C3F4CB621F19CD6004E40E5 /* MainMenuVC.swift */,
+				6C3F4CB821F1A078004E40E5 /* GradientVC.swift */,
+				6C3F4CBA21F1A085004E40E5 /* SimpleGridVC.swift */,
+				6C3F4CBE21F1A0AE004E40E5 /* CollectionGridVC.swift */,
+				6C3F4CC021F1A0BE004E40E5 /* PathVC.swift */,
+				6C3F4CC221F1A0CA004E40E5 /* StringVC.swift */,
+				6C3F4CC421F1A0D5004E40E5 /* TextFrameVC.swift */,
+				6C3F4CC621F1A0E0004E40E5 /* AttributedStringVC.swift */,
+				6C3F4CF521F81625004E40E5 /* FrameDrawVC.swift */,
 			);
 			path = ExDrawDemo;
 			sourceTree = "<group>";
@@ -108,20 +155,24 @@
 		6C3F4CA821F17B9E004E40E5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6C3F4CE821F1CDC0004E40E5 /* ExDraw.framework */,
 				6C3F4CAB21F19711004E40E5 /* ExDraw.framework */,
 				6C3F4CA921F17B9E004E40E5 /* ExDraw.framework */,
-				0C6124F1DF03B8BC27E13C45 /* Pods_ExDrawDemo.framework */,
+				A29170B6EBF9601A58025EE6 /* Pods_ExDrawDemo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		FAF25FCE75C2045AD5011A75 /* Pods */ = {
+		6C3F4CEA21F6F209004E40E5 /* res */ = {
 			isa = PBXGroup;
 			children = (
-				C2AA40E050F2CC927966BF94 /* Pods-ExDrawDemo.debug.xcconfig */,
-				3085D5F6D8B7798905AA06E7 /* Pods-ExDrawDemo.release.xcconfig */,
+				6C3F4CEB21F6F91B004E40E5 /* 1.txt */,
+				6C3F4CED21F6F91B004E40E5 /* 2.rtf */,
+				6C3F4CEE21F6F91B004E40E5 /* 3.jpg */,
+				6C3F4CEC21F6F91B004E40E5 /* 4.rtfd */,
+				6C3F4CEF21F6F91B004E40E5 /* 5.html */,
 			);
-			name = Pods;
+			path = res;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,11 +182,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6C3F4CA221F17B30004E40E5 /* Build configuration list for PBXNativeTarget "ExDrawDemo" */;
 			buildPhases = (
-				3C732FA02EA18FEEE5980E72 /* [CP] Check Pods Manifest.lock */,
+				97314C0E273AB6273F239DD8 /* [CP] Check Pods Manifest.lock */,
 				6C3F4C8121F17B2F004E40E5 /* Sources */,
 				6C3F4C8221F17B2F004E40E5 /* Frameworks */,
 				6C3F4C8321F17B2F004E40E5 /* Resources */,
-				BF1AA3F5C3308F81B6B4E48A /* [CP] Embed Pods Frameworks */,
+				C263F9A7533C5491ABE7CFA9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -207,8 +258,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C3F4CF121F6F91B004E40E5 /* 4.rtfd in Resources */,
+				6C3F4CF021F6F91B004E40E5 /* 1.txt in Resources */,
 				6C3F4C9321F17B30004E40E5 /* LaunchScreen.storyboard in Resources */,
+				6C3F4CF221F6F91B004E40E5 /* 2.rtf in Resources */,
 				6C3F4C9021F17B30004E40E5 /* Assets.xcassets in Resources */,
+				6C3F4CF321F6F91B004E40E5 /* 3.jpg in Resources */,
+				6C3F4CF421F6F91B004E40E5 /* 5.html in Resources */,
 				6C3F4C8E21F17B2F004E40E5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -223,7 +279,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3C732FA02EA18FEEE5980E72 /* [CP] Check Pods Manifest.lock */ = {
+		97314C0E273AB6273F239DD8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -245,7 +301,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BF1AA3F5C3308F81B6B4E48A /* [CP] Embed Pods Frameworks */ = {
+		C263F9A7533C5491ABE7CFA9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -274,7 +330,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C3F4C8B21F17B2F004E40E5 /* ViewController.swift in Sources */,
+				6C3F4CB921F1A078004E40E5 /* GradientVC.swift in Sources */,
+				6C3F4CC121F1A0BE004E40E5 /* PathVC.swift in Sources */,
+				6C3F4CB721F19CD6004E40E5 /* MainMenuVC.swift in Sources */,
+				6C3F4CBF21F1A0AE004E40E5 /* CollectionGridVC.swift in Sources */,
+				6C3F4CBB21F1A085004E40E5 /* SimpleGridVC.swift in Sources */,
+				6C3F4CC521F1A0D5004E40E5 /* TextFrameVC.swift in Sources */,
+				6C3F4CC321F1A0CA004E40E5 /* StringVC.swift in Sources */,
+				6C3F4CC721F1A0E0004E40E5 /* AttributedStringVC.swift in Sources */,
+				6C3F4CF621F81625004E40E5 /* FrameDrawVC.swift in Sources */,
 				6C3F4C8921F17B2F004E40E5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -435,7 +499,7 @@
 		};
 		6C3F4CA321F17B30004E40E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C2AA40E050F2CC927966BF94 /* Pods-ExDrawDemo.debug.xcconfig */;
+			baseConfigurationReference = CFE2E303499BA9C7E859C104 /* Pods-ExDrawDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -454,7 +518,7 @@
 		};
 		6C3F4CA421F17B30004E40E5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3085D5F6D8B7798905AA06E7 /* Pods-ExDrawDemo.release.xcconfig */;
+			baseConfigurationReference = 4C216D819F39FE730CF612B5 /* Pods-ExDrawDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

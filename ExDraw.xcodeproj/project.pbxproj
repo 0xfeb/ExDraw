@@ -25,20 +25,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		6C3F4CB221F19954004E40E5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6C3F4CAD21F19954004E40E5 /* ExDrawDemo.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6C3F4C8521F17B2F004E40E5;
-			remoteInfo = ExDrawDemo;
-		};
-		6C3F4CB421F19954004E40E5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6C3F4CAD21F19954004E40E5 /* ExDrawDemo.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 6C3F4C9921F17B30004E40E5;
-			remoteInfo = ExDrawDemoUITests;
-		};
 		6CA3BB1321E786A7008688A3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6C65835F2109F01B0054863F /* Project object */;
@@ -53,7 +39,6 @@
 		47ED00779E0F10040A335FAE /* Pods-ExDraw.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExDraw.release.xcconfig"; path = "Pods/Target Support Files/Pods-ExDraw/Pods-ExDraw.release.xcconfig"; sourceTree = "<group>"; };
 		61BAA0CB592D7C8ED36A6425 /* Pods_ExDraw_ExDrawTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ExDraw_ExDrawTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C06BC9F217A293200D05D22 /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
-		6C3F4CAD21F19954004E40E5 /* ExDrawDemo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = ExDrawDemo.xcodeproj; sourceTree = "<group>"; };
 		6C4C5BEAF7ECC0FF5F594D97 /* Pods-ExDraw.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExDraw.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ExDraw/Pods-ExDraw.debug.xcconfig"; sourceTree = "<group>"; };
 		6C651284217B1AE90027470E /* Transform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transform.swift; sourceTree = "<group>"; };
 		6C651285217B1AEA0027470E /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
@@ -109,19 +94,9 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		6C3F4CAE21F19954004E40E5 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				6C3F4CB321F19954004E40E5 /* ExDrawDemo.app */,
-				6C3F4CB521F19954004E40E5 /* ExDrawDemoUITests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		6C65835E2109F01B0054863F = {
 			isa = PBXGroup;
 			children = (
-				6C3F4CAD21F19954004E40E5 /* ExDrawDemo.xcodeproj */,
 				6C65836A2109F01B0054863F /* ExDraw */,
 				6CA3BB0E21E786A7008688A3 /* ExDrawTests */,
 				6C6583692109F01B0054863F /* Products */,
@@ -260,12 +235,6 @@
 			mainGroup = 6C65835E2109F01B0054863F;
 			productRefGroup = 6C6583692109F01B0054863F /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 6C3F4CAE21F19954004E40E5 /* Products */;
-					ProjectRef = 6C3F4CAD21F19954004E40E5 /* ExDrawDemo.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				6C6583672109F01B0054863F /* ExDraw */,
@@ -273,23 +242,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		6C3F4CB321F19954004E40E5 /* ExDrawDemo.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = ExDrawDemo.app;
-			remoteRef = 6C3F4CB221F19954004E40E5 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		6C3F4CB521F19954004E40E5 /* ExDrawDemoUITests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = ExDrawDemoUITests.xctest;
-			remoteRef = 6C3F4CB421F19954004E40E5 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		6C6583662109F01B0054863F /* Resources */ = {

@@ -97,3 +97,23 @@ public extension CGPath {
         return result
     }
 }
+
+public extension UIImage {
+    static func pathImage(screen:CGSize, path:UIBezierPath, stroke:(UIColor, CGFloat)?, fill:UIColor?) -> UIImage {
+        return UIGraphicsImageRenderer(size: screen)
+            .image(actions: { (content) in
+                content.cgContext.addPath(path.cgPath)
+                
+                if let fill = fill {
+                    content.cgContext.setFillColor(fill.cgColor)
+                    content.cgContext.fillPath()
+                }
+                
+                if let stroke = stroke {
+                    content.cgContext.setStrokeColor(stroke.0.cgColor)
+                    content.cgContext.setLineWidth(stroke.1)
+                    content.cgContext.strokePath()
+                }
+            })
+    }
+}

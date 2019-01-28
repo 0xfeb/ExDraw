@@ -324,6 +324,36 @@ public extension CGPoint {
     }
 }
 
+public extension CGFloat {
+    var intergal:CGFloat {
+        return CGFloat(Int(nearUp: self))
+    }
+}
+
+public extension Double {
+    var intergal:Double {
+        return Double(Int(nearUp: self))
+    }
+}
+
+public extension Float {
+    var intergal:Float {
+        return Float(Int(nearUp: self))
+    }
+}
+
+public extension CGPoint {
+    var intergal:CGPoint {
+        return CGPoint(x: x.intergal, y: y.intergal)
+    }
+}
+
+public extension CGSize {
+    var intergal:CGSize {
+        return CGSize(width: width.intergal, height: height.intergal)
+    }
+}
+
 public extension CGPoint {
     public func show() {
         let text = """
@@ -362,7 +392,7 @@ public extension CGRect {
     }
 }
 
-public enum Direction {
+public enum Direction : Int {
     case left
     case top
     case bottom
@@ -395,3 +425,16 @@ public extension CGRect {
         }
     }
 }
+
+public extension CFRange {
+    var nsRange:NSRange {
+        return NSRange(location: location, length: length)
+    }
+}
+
+public extension NSRange {
+    var cfRange:CFRange {
+        return CFRange(location: location, length: length)
+    }
+}
+

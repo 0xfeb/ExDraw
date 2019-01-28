@@ -54,6 +54,23 @@ public struct ExGrid {
         
         return CGRect(x: x, y: y, width: width, height: height).smallIntergal
     }
+    
+    public func height(count:Int) -> CGFloat {
+        let last = grid(at: count - 1)
+        return last.bottom + gap.border.height
+    }
+    
+    public var collectionViewLayout : UICollectionViewLayout {
+        let layout = UICollectionViewFlowLayout()
+        
+        let rect = grid(at: 0)
+        layout.itemSize = rect.size
+        layout.minimumInteritemSpacing = gap.gap.width
+        layout.minimumLineSpacing = gap.gap.height
+        layout.sectionInset = UIEdgeInsets(top: gap.border.height, left: gap.border.width, bottom: gap.border.height, right: gap.border.width)
+        
+        return layout
+    }
 }
 
 public extension CGSize {

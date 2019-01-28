@@ -11,50 +11,46 @@ import CoreGraphics
 import UIKit
 
 public extension CGGradient {
-    public static func dual(_ color0: UIColor, _ color1: UIColor) -> CGGradient? {
-        let colorSpace = CGColorSpaceCreateDeviceRGB()
-        let colors = [color0.cgColor, color1.cgColor]
-        let locs:[CGFloat] = [0.0, 1.0]
-        return CGGradient(colorsSpace: colorSpace, colors: colors as CFArray, locations: locs)
-    }
-    
-    public static func multi(colorList: [UIColor]) -> CGGradient? {
-        let colorSpace = CGColorSpaceCreateDeviceRGB()
+    public static func colors(_ colorList: [UIColor]) -> CGGradient? {
+        if colorList.count < 2 { return nil }
+        
         let colors = colorList.map({ $0.cgColor })
-        let locs:[CGFloat] = Array(stride(from: CGFloat(0.0), to: CGFloat(1.0), by: CGFloat(1.0)/CGFloat(colorList.count)))
-        return CGGradient(colorsSpace: colorSpace, colors: colors as CFArray, locations: locs)
+        return CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: colors as CFArray, locations: nil)
     }
+}
 
-    public func fill(inPath path: UIBezierPath, direction: Direction = .bottom) {
-        guard let context = UIGraphicsGetCurrentContext() else { return }
-
-        context.saveGState()
+public extension CGContext {
+    public func fill(gradient:CGGradient, inRect rect:CGRect, direction: Direction?, inPath path: UIBezierPath? = nil) {
+        self.saveGState()
+        let path = path ?? UIBezierPath(rect: rect)
         path.addClip()
-        let frame = CGRect(x: 0, y: 0, width: 1, height: 1)
-        context.drawLinearGradient(self,
-                                   start: frame.point(of: direction).opsitePoint(baseOf: frame.center),
-                                   end: frame.point(of: direction),
-                                   options: CGGradientDrawingOptions.drawsAfterEndLocation)
-        context.restoreGState()
-    }
-    
-    public func image(size: CGSize, direction: Direction? = .right) -> UIImage {
-        let rect = CGRect(origin: CGPoint.zero, size: size)
         if let direction = direction {
-            let frame = CGRect(x: 0, y: 0, width: 1, height: 1)
-            return UIGraphicsImageRenderer(bounds: rect)
-                .image(actions: { (context) in
-                context.cgContext.drawLinearGradient(self,
-                                                     start: frame.point(of: direction).opsitePoint(baseOf: frame.center),
-                                                     end: frame.point(of: direction),
-                                                     options: [])
-            })
+            self.drawLinearGradient(gradient,
+                                       start: rect.point(of: direction).opsitePoint(baseOf: rect.center),
+                                       end: rect.point(of: direction),
+                                       options: .drawsAfterEndLocation)
         } else {
-            let center = rect.center
-            let length = rect.outterCycle.width
-            return UIGraphicsImageRenderer(bounds: rect).image(actions: { (context) in
-                context.cgContext.drawRadialGradient(self, startCenter: center, startRadius: 0, endCenter: center, endRadius: length, options: [])
-            })
+            self.drawRadialGradient(gradient,
+                                       startCenter: rect.center,
+                                       startRadius: 0,
+                                       endCenter: rect.center,
+                                       endRadius: rect.width/2.0,
+                                       options: .drawsAfterEndLocation)
         }
+        
+        self.restoreGState()
+    }
+}
+
+public extension UIImage {
+    static func gradientImage(_ gradient:CGGradient, screen:CGSize, direction: Direction?, inPath path:UIBezierPath? = nil) -> UIImage {
+        let image = UIGraphicsImageRenderer(size: screen)
+            .image(actions: { (context) in
+                context.cgContext.fill(gradient:gradient,
+                                       inRect:CGRect(origin: CGPoint.zero, size: screen),
+                                       direction:direction,
+                                       inPath:path)
+            })
+        return image
     }
 }
