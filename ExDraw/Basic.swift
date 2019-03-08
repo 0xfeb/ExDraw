@@ -438,3 +438,10 @@ public extension NSRange {
     }
 }
 
+public func DegreeToCGAngle(_ degree:CGFloat) -> CGFloat {
+    return degree * CGFloat.pi / 180.0
+}
+
+public func CGAngleToDegree(_ angle:CGFloat) -> CGFloat {
+    return angle * 180.0 / CGFloat.pi
+}
